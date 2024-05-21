@@ -1,0 +1,22 @@
+kestra:
+  storage:
+    type: minio
+    minio:
+      endpoint: "${minio.endpoint}"
+      port: "${minio.port}"
+      secure: "false"
+      accessKey: "${minio.accessKey}"
+      secretKey: "${minio.secretKey}"
+      region: "${minio.region}"
+      bucket: "${minio.bucket}"
+  queue:
+    type: postgres
+  repository:
+    type: postgres
+
+datasources:
+  postgres:
+    url: jdbc:postgresql://${pg.host}:${pg.port}/${pg.database}
+    driverClassName: org.postgresql.Driver
+    username: ${pg.username}
+    password: ${pg.password}
